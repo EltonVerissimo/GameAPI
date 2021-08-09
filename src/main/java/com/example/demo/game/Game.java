@@ -1,8 +1,23 @@
 package com.example.demo.game;
 
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
+import javax.persistence.*;
 import java.time.LocalDate;
 
+@Entity
+@Table
 public class Game {
+    @Id
+    @SequenceGenerator(
+            name = "game_sequence",
+            sequenceName = "game_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "game_sequence"
+    )
     private Long id;
     private String name;
     private LocalDate releaseDate;
