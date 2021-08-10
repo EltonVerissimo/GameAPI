@@ -4,6 +4,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.Period;
 
 @Entity
 @Table
@@ -22,6 +23,8 @@ public class Game {
     private String name;
     private LocalDate releaseDate;
     private String platforms;
+    @Transient
+    private Integer age;
 
     public Game() {
     }
@@ -69,6 +72,14 @@ public class Game {
 
     public void setPlatforms(String platforms) {
         this.platforms = platforms;
+    }
+
+    public Integer getAge() {
+        return Period.between(this.releaseDate, LocalDate.now()).getYears();
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
     }
 
     @Override
