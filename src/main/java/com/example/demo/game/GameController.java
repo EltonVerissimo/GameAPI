@@ -39,9 +39,9 @@ public class GameController {
     public void updateGame(
             @PathVariable("gameId") Long gameId,
             @RequestParam(required = false) String name,
-            @RequestParam(required = false ) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime releaseDate,
+            //@RequestParam(required = false ) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime releaseDate,
             @RequestParam(required = false) String platforms){
 
-        gameService.updateGame(gameId, name, releaseDate, platforms);
+        gameService.updateGame(gameId, name, platforms);
     }
 }

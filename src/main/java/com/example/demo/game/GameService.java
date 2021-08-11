@@ -46,7 +46,6 @@ public class GameService {
     public void updateGame(
                             Long gameId,
                             String name,
-                            LocalDate releaseDate,
                             String platforms) {
         Game game = gameRepository.findById(gameId)
                 .orElseThrow(() -> new IllegalStateException(
@@ -58,9 +57,6 @@ public class GameService {
             if(gameOptional.isPresent()){
                 throw new IllegalStateException("Name already exists!");
             }
-            game.setName(name);
-        }
-        if(releaseDate != null){
             game.setName(name);
         }
         if(platforms != null){
